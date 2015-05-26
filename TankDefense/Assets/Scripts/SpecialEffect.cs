@@ -21,6 +21,8 @@ public class SpecialEffect : MonoBehaviour {
 
     public void Explosion(Vector3 position)
     {
+        //position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Debug.Log("position");
         Instantiate(smokeEffect, position);
         Debug.Log("to aqui");
         Instantiate(fireEffect, position);
@@ -28,7 +30,7 @@ public class SpecialEffect : MonoBehaviour {
 
     private ParticleSystem Instantiate(ParticleSystem prefab, Vector3 position)
     {
-        ParticleSystem newParticleSystem = Instantiate(prefab, position) as ParticleSystem;
+        ParticleSystem newParticleSystem = Instantiate(prefab, position, transform.rotation) as ParticleSystem;
 
         Destroy(newParticleSystem.gameObject, newParticleSystem.startLifetime);
 

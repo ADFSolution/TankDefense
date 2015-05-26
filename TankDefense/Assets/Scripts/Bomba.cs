@@ -9,6 +9,8 @@ public class Bomba : MonoBehaviour {
 	public float tempoVida;
 	private Gerenciador gerenciador;
 	private Vidas vida;
+    private SpecialEffect effect;
+    private GameObject nave;
 	//private Score score;
 
 	void Awake()
@@ -36,26 +38,31 @@ public class Bomba : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D colisor)
 	{
-		
-		if (colisor.gameObject.tag == "Player") {
-			
+         
+        if (colisor.gameObject.tag == "Nave")
+        {
+            
 			vida = GameObject.FindGameObjectWithTag("Vidas").GetComponent<Vidas>() as Vidas;
 			
-			if (vida.ExcluirVida()){
+			if (vida.ExcluirVida())
+            {
 				
 				Handheld.Vibrate();
 				//score.TiraPonto(ponto);
 				gerenciador.AddQuantidade(1); 
                
 				Destroy(gameObject);
-                //SpecialEffect.Instantiate<Explosion>(transform.position);
-                GetComponent<SpecialEffect>().Explosion(transform.position);
+                //Instantiate<SpecialEffect>().Explosion(transform.position);
+                //GetComponent<SpecialEffect>().Explosion(transform.position);
+                //effect = GetComponent<SpecialEffect>();
+                SpecialEffect.Instance.Explosion(transform.position);
+                nave = GameObject.FindGameObjectWithTag("Nave");
+                Destroy(nave);
+                
                }else{
-				
-				gerenciador.GameOver("GameOver");
-				
+				gerenciador.GameOver("GameOver");				
 			}
-			
+            
 		}
 		
 		
