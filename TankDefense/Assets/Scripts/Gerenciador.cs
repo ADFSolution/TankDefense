@@ -19,6 +19,7 @@ public class Gerenciador : MonoBehaviour {
 		if (player != null)
 		{
 			posicaoInicialPlayer = player.position;
+            Debug.Log(posicaoInicialPlayer);
 		}
 		quantidadeMaxima = 5;
 	}
@@ -41,7 +42,7 @@ public class Gerenciador : MonoBehaviour {
 	{
 		player.position = posicaoInicialPlayer;
 		Debug.Log(player.position);
-		Debug.Log(posicaoInicialPlayer);
+		Debug.Log("Tem Queue ter Vidas");
 	}
 	
 	public void GameOver(string nome)

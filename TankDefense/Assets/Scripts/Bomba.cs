@@ -11,6 +11,7 @@ public class Bomba : MonoBehaviour {
 	private Vidas vida;
     private SpecialEffect effect;
     private GameObject nave;
+    private Gerenciador gerencia;
 	//private Score score;
 
 	void Awake()
@@ -58,6 +59,10 @@ public class Bomba : MonoBehaviour {
                 SpecialEffect.Instance.Explosion(transform.position);
                 nave = GameObject.FindGameObjectWithTag("Nave");
                 Destroy(nave);
+                //System.Threading.Thread.Sleep(3);
+                Debug.Log("11111PASSSSSOUUUUU");
+                gerenciador.StartGame();
+                Debug.Log("PASSSSSOUUUUU");
                 
                }else{
 				gerenciador.GameOver("GameOver");				
