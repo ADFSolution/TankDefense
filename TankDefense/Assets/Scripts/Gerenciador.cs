@@ -15,12 +15,13 @@ public class Gerenciador : MonoBehaviour {
 	// Use this for initialization
 	void Awake()
 	{
-		
+        
 		if (player != null)
 		{
 			posicaoInicialPlayer = player.position;
             Debug.Log(posicaoInicialPlayer);
-		}
+        }
+        
 		quantidadeMaxima = 5;
 	}
 	
@@ -40,9 +41,11 @@ public class Gerenciador : MonoBehaviour {
 	
 	public void StartGame()
 	{
-		player.position = posicaoInicialPlayer;
-		Debug.Log(player.position);
-		Debug.Log("Tem Queue ter Vidas");
+
+        player.position = posicaoInicialPlayer;
+        Debug.Log(player.position);
+        Debug.Log(posicaoInicialPlayer);
+     
 	}
 	
 	public void GameOver(string nome)
@@ -59,4 +62,6 @@ public class Gerenciador : MonoBehaviour {
 	{
 		Application.LoadLevel (level);
 	}
+
+   
 }

@@ -50,27 +50,50 @@ public class Bomba : MonoBehaviour {
 				
 				Handheld.Vibrate();
 				//score.TiraPonto(ponto);
-				gerenciador.AddQuantidade(1); 
-               
-				Destroy(gameObject);
+				gerenciador.AddQuantidade(1);
+
+                Destroy(gameObject);
                 //Instantiate<SpecialEffect>().Explosion(transform.position);
                 //GetComponent<SpecialEffect>().Explosion(transform.position);
                 //effect = GetComponent<SpecialEffect>();
                 SpecialEffect.Instance.Explosion(transform.position);
                 nave = GameObject.FindGameObjectWithTag("Nave");
-                Destroy(nave);
+                gameObject.SetActive(false);
+                // Destroy(nave);
                 //System.Threading.Thread.Sleep(3);
                 Debug.Log("11111PASSSSSOUUUUU");
-                gerenciador.StartGame();
+                //gerenciador.StartGame();
+                SpawnNave();
                 Debug.Log("PASSSSSOUUUUU");
                 
                }else{
 				gerenciador.GameOver("GameOver");				
 			}
             
-		}
+		
+        }
+    }
+
+        public void SpawnNave()
+    {
+
+        StartCoroutine(WaitForNaveCoroutine());
+         
+       
+    }
+
+        IEnumerator WaitForNaveCoroutine()
+        {
+        Debug.Log ("about to yield return WaitForSeconds(1)");
+
+        yield return new WaitForSeconds(100);
+
+        Instantiate(nave, new Vector3(0,2,0), Quaternion.identity);
+        Debug.Log("foi");
+
+    }
 		
 		
 		
-	}
+	
 }
