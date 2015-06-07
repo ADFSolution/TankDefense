@@ -12,10 +12,10 @@ public class Splash : MonoBehaviour {
 
     #if UNITY_ANDROID
         Handheld.PlayFullScreenMovie("splash.mp4", Color.black, FullScreenMovieControlMode.CancelOnInput);
-        Application.LoadLevel("Nave");
-    #endif
+        Application.LoadLevel("StartGame");
+#endif
 
-    #if UNITY_STANDALONE_WIN
+#if UNITY_STANDALONE_WIN
 
         AudioSource audio = GetComponent<AudioSource>();
         GetComponent<Renderer>().material.mainTexture = video as MovieTexture;
@@ -31,7 +31,7 @@ public class Splash : MonoBehaviour {
     {
     #if UNITY_STANDALONE_WIN
         video.Stop();
-        Application.LoadLevel("Nave");
+        Application.LoadLevel("StartGame");
     #endif
     }
 
@@ -41,7 +41,7 @@ public class Splash : MonoBehaviour {
     #if UNITY_STANDALONE_WIN
         if (!video.isPlaying)
         {
-            Application.LoadLevel("Nave");
+            Application.LoadLevel("StartGame");
         }
     #endif
     }

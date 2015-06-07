@@ -64,6 +64,7 @@ public class Bomba : MonoBehaviour {
                 Debug.Log("11111PASSSSSOUUUUU");
                 //gerenciador.StartGame();
                 SpawnNave();
+              
                 Debug.Log("PASSSSSOUUUUU");
                 
                }else{
@@ -77,16 +78,16 @@ public class Bomba : MonoBehaviour {
         public void SpawnNave()
     {
 
-        StartCoroutine(WaitForNaveCoroutine());
+        StartCoroutine(WaitForNaveCoroutine(1.0f));
          
        
     }
 
-        IEnumerator WaitForNaveCoroutine()
+        IEnumerator WaitForNaveCoroutine(float waiTime)
         {
         Debug.Log ("about to yield return WaitForSeconds(1)");
 
-        yield return new WaitForSeconds(100);
+        yield return new WaitForSeconds(waiTime);
 
         Instantiate(nave, new Vector3(0,2,0), Quaternion.identity);
         Debug.Log("foi");
