@@ -12,7 +12,7 @@ public class Splash : MonoBehaviour {
 
     #if UNITY_ANDROID
         Handheld.PlayFullScreenMovie("splash.mp4", Color.black, FullScreenMovieControlMode.CancelOnInput);
-        Application.LoadLevel("StartGame");
+        Application.LoadLevel("Menu");
 #endif
 
 #if UNITY_STANDALONE_WIN
@@ -31,7 +31,7 @@ public class Splash : MonoBehaviour {
     {
     #if UNITY_STANDALONE_WIN
         video.Stop();
-        Application.LoadLevel("StartGame");
+        Application.LoadLevel("Menu");
     #endif
     }
 
@@ -41,7 +41,7 @@ public class Splash : MonoBehaviour {
     #if UNITY_STANDALONE_WIN
         if (!video.isPlaying)
         {
-            Application.LoadLevel("StartGame");
+            Application.LoadLevel("Menu");
         }
     #endif
     }
