@@ -16,6 +16,9 @@ public class MenuAnimadoC : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gerenciador = FindObjectOfType(typeof(Gerenciador)) as Gerenciador;
+        cambia = true;
+        abrir = true;
+        cerrar = false;
 	}
 	
 	// Update is called once per frame
@@ -55,25 +58,25 @@ public class MenuAnimadoC : MonoBehaviour {
 		GUI.skin = SKIN;
         //GUI.TextArea(new Rect(150, 50, 250, 50), "Tank Defense");
 		//GUI.Window(0,new Rect(30,30,ancho, alto),Menu,"MENU");
-        GUI.Window(0, new Rect(Screen.width - 890, 70, ancho, alto), Menu, "MENU");
+        GUI.Window(0, new Rect(Screen.width - 830, 70, ancho, alto), Menu, "MENU");
 
-        if (GUI.Button (new Rect (Screen.width - 570, 70, 100, 50), "Open"))
-			//GUI.Button (Rect (Screen.width - 200, 50, 50, 30), "", "");
-		{
+        //if (GUI.Button (new Rect (Screen.width - 570, 70, 100, 50), "Open"))
+        //    //GUI.Button (Rect (Screen.width - 200, 50, 50, 30), "", "");
+        //{
 			
-			cambia = true;
-			abrir = true;
-			cerrar = false;
+        //    cambia = true;
+        //    abrir = true;
+        //    cerrar = false;
 			
-		}
+        //}
 
-		if(GUI.Button(new Rect(Screen.width - 570, 130,100,50),"Close"))
-		{
+        //if(GUI.Button(new Rect(Screen.width - 570, 130,100,50),"Close"))
+        //{
 			
-			cambia = true;
-			abrir = false;
-			cerrar = true;
-		}
+        //    cambia = true;
+        //    abrir = false;
+        //    cerrar = true;
+        //}
 
 	}
 
@@ -81,16 +84,24 @@ public class MenuAnimadoC : MonoBehaviour {
 	{
 		if(GUI.Button(new Rect(75,50,150,50),"Start"))
 		{
+            cambia = true;
+            abrir = false;
+            cerrar = true;
 			gerenciador.ProximoLevel(gerenciador.proximoLevel);
 		}
 		
 		if(GUI.Button(new Rect(75,110,150,50),"Creditos"))
 		{
-			
+            cambia = true;
+            abrir = false;
+            cerrar = true;
 		}
 		
 		if(GUI.Button(new Rect(75,170,150,50),"Exit"))
 		{
+            cambia = true;
+            abrir = false;
+            cerrar = true;
             Application.Quit();
 		}
 	}
