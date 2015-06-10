@@ -26,10 +26,24 @@ public class Player : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		Movimentar ();
-	}
-	
+    void Update()
+    {
+        Movimentar();
+
+        // Verificando se o player está atirando.
+        if (Input.GetButtonDown("Fire1"))
+        {
+            WeaponScript weapon = GetComponent<WeaponScript>();
+
+            if (weapon != null && weapon.shootCooldown <= 0)
+            {
+                weapon.Attack();
+
+                // Som de tiro do player.
+                //SoundEffectScript.Instance.MakePlayerShotSound();
+            }
+        }
+    }
 	
 	void Movimentar()
     {

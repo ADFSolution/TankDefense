@@ -52,12 +52,12 @@ public class Bomba : MonoBehaviour {
 				//score.TiraPonto(ponto);
 				gerenciador.AddQuantidade(1);
 
-                Destroy(gameObject);
+                //Destroy(gameObject);
                 //Instantiate<SpecialEffect>().Explosion(transform.position);
                 //GetComponent<SpecialEffect>().Explosion(transform.position);
                 //effect = GetComponent<SpecialEffect>();
                 SpecialEffect.Instance.Explosion(transform.position);
-                nave = GameObject.FindGameObjectWithTag("Nave");
+                //nave = GameObject.FindGameObjectWithTag("Nave");
                 gameObject.SetActive(false);
                 // Destroy(nave);
                 //System.Threading.Thread.Sleep(3);
